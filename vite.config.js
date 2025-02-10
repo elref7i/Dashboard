@@ -4,10 +4,11 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
   plugins: [react(), visualizer()],
+  base: './', // أو جرب "/"
   build: {
     minify: 'esbuild',
     sourcemap: false,
-    treeshake: true, // تأكيد تفعيل Tree Shaking
+    treeshake: true,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -19,7 +20,7 @@ export default defineConfig({
     },
     esbuild: {
       minify: true,
-      treeShaking: true, // إضافة Tree Shaking هنا برضه
+      treeShaking: true,
     },
   },
 });
