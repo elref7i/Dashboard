@@ -27,7 +27,8 @@ import PieChartIcon from '@mui/icons-material/PieChart';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import MapIcon from '@mui/icons-material/Map';
 import ImageAdmin from '../../assets/photo_2024-12-03_19-37-17.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { grey } from '@mui/material/colors';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -105,8 +106,9 @@ const ArrayThree = [
 // eslint-disable-next-line react/prop-types
 export default function Sidebar({ handleDrawerClose, open }) {
   const theme = useTheme();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
-
+  console.log(location.pathname);
   return (
     <Drawer variant="permanent" open={open}>
       <DrawerHeader>
@@ -135,7 +137,6 @@ export default function Sidebar({ handleDrawerClose, open }) {
           fontWeight={'bold'}
           fontSize={open ? 20 : 0}
           color="primary"
-          margin={1}
           sx={{ transition: 'fontSize .25s' }}
         >
           Ahmed Refai
@@ -158,19 +159,18 @@ export default function Sidebar({ handleDrawerClose, open }) {
               onClick={() => {
                 navigate(item.path);
               }}
-              sx={[
-                {
-                  minHeight: 48,
-                  px: 2.5,
-                },
-                open
-                  ? {
-                      justifyContent: 'initial',
-                    }
-                  : {
-                      justifyContent: 'center',
-                    },
-              ]}
+              sx={{
+                minHeight: 48,
+                px: 2.5,
+                borderRadius: '5px',
+                justifyContent: open ? 'initial' : 'center',
+                bgcolor:
+                  pathname === item.path
+                    ? theme.palette.mode === 'dark'
+                      ? grey[800]
+                      : grey[200]
+                    : 'transparent',
+              }}
             >
               <ListItemIcon
                 sx={[
@@ -217,6 +217,8 @@ export default function Sidebar({ handleDrawerClose, open }) {
                 {
                   minHeight: 48,
                   px: 2.5,
+                  bgcolor: pathname === item.path ? 'red' : 'transparent',
+                  borderRadius: '5px',
                 },
                 open
                   ? {
@@ -272,6 +274,8 @@ export default function Sidebar({ handleDrawerClose, open }) {
                 {
                   minHeight: 48,
                   px: 2.5,
+                  bgcolor: pathname === item.path && 'gray',
+                  borderRadius: '5px',
                 },
                 open
                   ? {

@@ -18,12 +18,12 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: '/information',
-        element: <ContactInfo />,
-      },
-      {
         path: '/team',
         element: <Team />,
+      },
+      {
+        path: '/information',
+        element: <ContactInfo />,
       },
       {
         path: '/profile',
