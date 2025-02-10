@@ -21,21 +21,18 @@ export default function Team() {
     {
       field: 'id',
       headerName: 'ID',
-      width: 150,
       align: 'center',
       headerAlign: 'center',
     },
     {
       field: 'name',
       headerName: 'Name',
-      width: 150,
       align: 'center',
       headerAlign: 'center',
     },
     {
       field: 'Email',
       headerName: 'Email',
-      width: 150,
       flex: 1,
       align: 'center',
       headerAlign: 'center',
@@ -43,14 +40,12 @@ export default function Team() {
     {
       field: 'Age',
       headerName: 'Age',
-      width: 150,
       align: 'center',
       headerAlign: 'center',
     },
     {
       field: 'Phone',
       headerName: 'Phone',
-      width: 150,
       flex: 1,
       align: 'center',
       headerAlign: 'center',
@@ -58,7 +53,6 @@ export default function Team() {
     {
       field: 'Access',
       headerName: 'Access',
-      width: 150,
       flex: 1,
       align: 'center',
       headerAlign: 'center',
@@ -108,7 +102,7 @@ export default function Team() {
   ];
 
   return (
-    <div style={{ height: 500, width: '100%' }}>
+    <div style={{ height: 600, width: '98%' }}>
       <Button
         onClick={handleExportCSV}
         sx={{
