@@ -57,8 +57,6 @@ export default function Team() {
       align: 'center',
       headerAlign: 'center',
       renderCell: ({ row: { Access } }) => {
-        console.log(Access.toLowerCase());
-
         return (
           <Box
             sx={{

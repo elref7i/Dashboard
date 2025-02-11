@@ -4,7 +4,8 @@ import Navigation from './components/Navigation/Navigation';
 import Sidebar from './components/Sidebar/Sidebar';
 import { createTheme, styled, ThemeProvider } from '@mui/material';
 import { getDesignTokens } from './theme';
-import { useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
+
 import { Outlet } from 'react-router-dom';
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -13,9 +14,22 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
 }));
+
+const preloadPages = () => {
+  Promise.all([
+    import('./pages/Dashboard/Dashboard'),
+    import('./pages/Profile/Profile'),
+    import('./pages/Team/Team'),
+    import('./pages/ContactInfo/ContactInfo'),
+  ]).catch((err) => console.error('Preload Error:', err));
+};
+
 export default function App() {
   const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    preloadPages();
+  }, []);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -38,7 +52,9 @@ export default function App() {
         <Sidebar handleDrawerClose={handleDrawerClose} open={open} />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
-          <Outlet />
+          <Suspense fallback={<h2>Loading...</h2>}>
+            <Outlet />
+          </Suspense>
         </Box>
       </Box>
     </ThemeProvider>

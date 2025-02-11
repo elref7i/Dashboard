@@ -12,20 +12,22 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MuiDrawer from '@mui/material/Drawer';
-import HomeIcon from '@mui/icons-material/Home';
-import GroupIcon from '@mui/icons-material/Group';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import ArticleIcon from '@mui/icons-material/Article';
-import PersonIcon from '@mui/icons-material/Person';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import PieChartIcon from '@mui/icons-material/PieChart';
-import TimelineIcon from '@mui/icons-material/Timeline';
-import MapIcon from '@mui/icons-material/Map';
+import {
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon,
+  Home as HomeIcon,
+  Group as GroupIcon,
+  Contacts as ContactsIcon,
+  Article as ArticleIcon,
+  Person as PersonIcon,
+  CalendarToday as CalendarTodayIcon,
+  HelpOutline as HelpOutlineIcon,
+  BarChart as BarChartIcon,
+  PieChart as PieChartIcon,
+  Timeline as TimelineIcon,
+  Map as MapIcon,
+} from '@mui/icons-material';
 import ImageAdmin from '../../assets/photo_2024-12-03_19-37-17.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
@@ -108,7 +110,6 @@ export default function Sidebar({ handleDrawerClose, open }) {
   const theme = useTheme();
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  console.log(location.pathname);
   return (
     <Drawer variant="permanent" open={open}>
       <DrawerHeader>

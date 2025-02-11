@@ -1,12 +1,12 @@
-import { StrictMode } from 'react';
+import { lazy, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Team from './pages/Team/Team';
-import Profile from './pages/Profile/Profile';
-import ContactInfo from './pages/ContactInfo/ContactInfo';
+const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
+const Team = lazy(() => import('./pages/Team/Team'));
+const Profile = lazy(() => import('./pages/Profile/Profile'));
+const ContactInfo = lazy(() => import('./pages/ContactInfo/ContactInfo'));
 
 const router = createBrowserRouter([
   {
