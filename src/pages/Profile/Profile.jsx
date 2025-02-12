@@ -4,11 +4,40 @@ import {
   FormControl,
   InputLabel,
   NativeSelect,
+  Snackbar,
   Stack,
   TextField,
 } from '@mui/material';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function Profile() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regx = /^.{8,}$/;
+  const phoneRegx = /^(02)?01[0125][0-9]{8}/;
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setInterval(() => {
+      setOpen(false);
+    }, 10000);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    handleClick();
+  };
+
   return (
     <Box
       component={'section'}
@@ -19,7 +48,12 @@ export default function Profile() {
         minHeight: '80vh',
       }}
     >
-      <Stack component={'form'} width={'80%'} gap={3}>
+      <Stack
+        onSubmit={handleSubmit(onSubmit)}
+        component={'form'}
+        width={'80%'}
+        gap={3}
+      >
         <Stack
           direction={'row'}
           gap={3}
@@ -31,6 +65,13 @@ export default function Profile() {
             label="First Name"
             name="firstName"
             variant="filled"
+            {...register('firstName', {
+              required: true,
+              maxLength: 20,
+              minLength: 3,
+            })}
+            error={Boolean(errors.firstName)}
+            helperText={errors.firstName && 'Required'}
           />
 
           <TextField
@@ -39,6 +80,13 @@ export default function Profile() {
             label="Last Name"
             name="lastName"
             variant="filled"
+            {...register('lastName', {
+              required: true,
+              maxLength: 15,
+              minLength: 3,
+            })}
+            error={errors.lastName}
+            helperText={errors.lastName && 'required'}
           />
         </Stack>
         <TextField
@@ -46,7 +94,20 @@ export default function Profile() {
           id="filled-basic"
           label="Email"
           name="email"
+          {...register('email', { required: true, pattern: emailRegex })}
           variant="filled"
+          error={errors.email}
+          helperText={errors.email && 'Required'}
+        />
+        <TextField
+          fullWidth
+          id="filled-basic"
+          label="Phone"
+          name="phone"
+          {...register('phone', { required: true, pattern: phoneRegx })}
+          variant="filled"
+          error={errors.phone}
+          helperText={errors.phone && 'Required'}
         />
         <TextField
           fullWidth
@@ -54,20 +115,32 @@ export default function Profile() {
           label="Age"
           name="age"
           variant="filled"
+          type="number"
+          {...register('age', { min: 18, max: 99 })}
+          error={errors.age}
+          helperText={errors.age && 'required'}
         />
         <TextField
           fullWidth
           id="filled-basic"
           label="Address One"
           name="addressOne"
+          type="number"
+          {...register('addressOne', { pattern: regx })}
           variant="filled"
+          error={errors.addressOne}
+          helperText={errors.addressOne && 'required'}
         />
         <TextField
           fullWidth
           id="filled-basic"
           label="Address Two"
           name="addressTwo"
+          type="number"
+          {...register('addressTwo', { pattern: regx })}
           variant="filled"
+          error={errors.addressTwo}
+          helperText={errors.addressTwo && 'required'}
         />
 
         <FormControl fullWidth>
@@ -75,6 +148,7 @@ export default function Profile() {
             Role
           </InputLabel>
           <NativeSelect
+            {...register('role')}
             defaultValue={'User'}
             inputProps={{
               name: 'role',
@@ -94,6 +168,7 @@ export default function Profile() {
           >
             Create New User
           </Button>
+          <Snackbar open={open} onClose={handleClose} message="I love snacks" />
         </Box>
       </Stack>
     </Box>
