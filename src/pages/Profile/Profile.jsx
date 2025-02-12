@@ -172,6 +172,7 @@ export default function Profile() {
             Create New User
           </Button>
           <Snackbar
+            anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
             open={open}
             autoHideDuration={5000}
             onClose={handleClose}
