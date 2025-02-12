@@ -1,0 +1,81 @@
+export const rows = [
+  {
+    id: 1,
+    registerId: 2224,
+    name: 'Refai',
+    Email: 'refai@gmail.com',
+    Age: '22',
+    Phone: '01149803891',
+    Address: 777777,
+    Access: 'Manager',
+    ZipCode: 11111,
+  },
+  {
+    id: 2,
+    registerId: 2224,
+    name: 'Refai',
+    Email: 'refai@gmail.com',
+    Age: '22',
+    Phone: '01149803891',
+    Address: 777777,
+    Access: 'Manager',
+    ZipCode: 11111,
+  },
+];
+
+export const columns = [
+  {
+    field: 'id',
+    headerName: 'ID',
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'registerId',
+    headerName: 'Register ID',
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'name',
+    headerName: 'Name',
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'Email',
+    headerName: 'Email',
+    flex: 1,
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'Age',
+    headerName: 'Age',
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'Phone',
+    headerName: 'Phone',
+    flex: 1,
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'Address',
+    headerName: 'Address',
+    flex: 1,
+    align: 'center',
+    headerAlign: 'center',
+    type: 'number',
+  },
+  {
+    field: 'ZipCode',
+    headerName: 'Zip Code',
+    flex: 1,
+    align: 'center',
+    headerAlign: 'center',
+    type: 'number',
+  },
+];
