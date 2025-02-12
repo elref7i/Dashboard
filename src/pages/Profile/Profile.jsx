@@ -1,4 +1,5 @@
 import {
+  Alert,
   Box,
   Button,
   FormControl,
@@ -8,7 +9,7 @@ import {
   Stack,
   TextField,
 } from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function Profile() {
@@ -16,16 +17,18 @@ export default function Profile() {
   const regx = /^.{8,}$/;
   const phoneRegx = /^(02)?01[0125][0-9]{8}/;
   const [open, setOpen] = useState(false);
+
   const handleClick = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setInterval(() => {
-      setOpen(false);
-    }, 10000);
-  };
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
 
+    setOpen(false);
+  };
   const {
     register,
     handleSubmit,
@@ -168,7 +171,14 @@ export default function Profile() {
           >
             Create New User
           </Button>
-          <Snackbar open={open} onClose={handleClose} message="I love snacks" />
+          <Snackbar
+            open={open}
+            autoHideDuration={5000}
+            onClose={handleClose}
+            message="I love snacks"
+          >
+            <Alert severity="success">This is a success Alert.</Alert>
+          </Snackbar>
         </Box>
       </Stack>
     </Box>
