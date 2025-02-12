@@ -19,7 +19,6 @@ import {
   Home as HomeIcon,
   Group as GroupIcon,
   Contacts as ContactsIcon,
-  Article as ArticleIcon,
   Person as PersonIcon,
   CalendarToday as CalendarTodayIcon,
   HelpOutline as HelpOutlineIcon,
@@ -92,7 +91,6 @@ const ArrayOne = [
     icon: <ContactsIcon />,
     path: '/information',
   },
-  { text: 'Invioces', icon: <ArticleIcon />, path: '/invioces' },
 ];
 const ArrayTwo = [
   { text: 'Profile Form', icon: <PersonIcon />, path: '/profile' },
