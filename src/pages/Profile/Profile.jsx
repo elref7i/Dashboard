@@ -32,7 +32,6 @@ export default function Profile() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
