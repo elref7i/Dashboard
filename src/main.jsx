@@ -4,6 +4,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Calendar from './pages/Calendar/Calendar';
+import FAQ from './pages/FAQ/FAQ';
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
 const Team = lazy(() => import('./pages/Team/Team'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/calendar',
         element: <Calendar />,
+      },
+      {
+        path: '/faq',
+        element: <FAQ />,
       },
     ],
   },
