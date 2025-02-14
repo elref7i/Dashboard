@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
+import Calendar from './pages/Calendar/Calendar';
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
 const Team = lazy(() => import('./pages/Team/Team'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile />,
+      },
+      {
+        path: '/calendar',
+        element: <Calendar />,
       },
     ],
   },

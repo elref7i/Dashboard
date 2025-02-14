@@ -94,7 +94,7 @@ const ArrayOne = [
 ];
 const ArrayTwo = [
   { text: 'Profile Form', icon: <PersonIcon />, path: '/profile' },
-  { text: 'Calender', icon: <CalendarTodayIcon />, path: '/calender' },
+  { text: 'Calendar', icon: <CalendarTodayIcon />, path: '/calendar' },
   { text: 'FAQ Page', icon: <HelpOutlineIcon />, path: '/faq' },
 ];
 const ArrayThree = [
