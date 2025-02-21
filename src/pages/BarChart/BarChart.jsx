@@ -66,33 +66,33 @@ export default function BarChart() {
         theme={{
           text: {
             fontSize: 11,
-            fill: theme.palette.secondary.main,
+            fill: theme.palette.secondary,
             outlineWidth: 0,
             outlineColor: 'transparent',
           },
           axis: {
             domain: {
               line: {
-                stroke: theme.palette.primary.main,
+                stroke: theme.palette.secondary.dark,
                 strokeWidth: 1,
               },
             },
             legend: {
               text: {
                 fontSize: 12,
-                fill: theme.palette.secondary.main,
+                fill: theme.palette.secondary,
                 outlineWidth: 0,
                 outlineColor: 'transparent',
               },
             },
             ticks: {
               line: {
-                stroke: theme.palette.primary.main,
+                stroke: theme.palette.secondary.dark,
                 strokeWidth: 1,
               },
               text: {
                 fontSize: 11,
-                fill: theme.palette.secondary.main,
+                fill: theme.palette.secondary,
                 outlineWidth: 0,
                 outlineColor: 'transparent',
               },
@@ -108,14 +108,14 @@ export default function BarChart() {
             title: {
               text: {
                 fontSize: 11,
-                fill: theme.palette.secondary.main,
+                fill: theme.palette.secondary,
                 outlineWidth: 0,
                 outlineColor: 'transparent',
               },
             },
             text: {
               fontSize: 11,
-              fill: theme.palette.secondary.main,
+              fill: theme.palette.secondary,
               outlineWidth: 0,
               outlineColor: 'transparent',
             },
@@ -123,7 +123,7 @@ export default function BarChart() {
               line: {},
               text: {
                 fontSize: 10,
-                fill: theme.palette.secondary.main,
+                fill: theme.palette.secondary,
                 outlineWidth: 0,
                 outlineColor: 'transparent',
               },
@@ -132,37 +132,37 @@ export default function BarChart() {
           annotations: {
             text: {
               fontSize: 13,
-              fill: theme.palette.secondary.main,
+              fill: theme.palette.secondary.light,
               outlineWidth: 2,
-              outlineColor: '#ffffff',
+              outlineColor: theme.palette.secondary.dark,
               outlineOpacity: 1,
             },
             link: {
               stroke: theme.palette.info.main,
               strokeWidth: 1,
               outlineWidth: 2,
-              outlineColor: '#ffffff',
+              outlineColor: theme.palette.secondary.dark,
               outlineOpacity: 1,
             },
             outline: {
               stroke: theme.palette.info.main,
               strokeWidth: 2,
               outlineWidth: 2,
-              outlineColor: '#ffffff',
+              outlineColor: theme.palette.secondary.dark,
               outlineOpacity: 1,
             },
             symbol: {
               fill: theme.palette.info.main,
               outlineWidth: 2,
-              outlineColor: '#ffffff',
+              outlineColor: theme.palette.secondary.dark,
               outlineOpacity: 1,
             },
           },
           tooltip: {
             wrapper: {},
             container: {
-              background: '#ffffff',
-              color: theme.palette.secondary.main,
+              background: theme.palette.secondary.dark,
+              color: theme.palette.secondary.light,
               fontSize: 12,
             },
             basic: {},
