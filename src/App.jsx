@@ -25,7 +25,7 @@ const preloadPages = () => {
 };
 
 export default function App() {
-  const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');
+  const [mode, setMode] = useState(localStorage.getItem('mode') || 'dark');
   const [open, setOpen] = useState(false);
   useEffect(() => {
     preloadPages();

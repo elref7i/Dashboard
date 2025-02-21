@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Calendar from './pages/Calendar/Calendar';
 import FAQ from './pages/FAQ/FAQ';
+import BarChart from './pages/BarChart/BarChart';
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
 const Team = lazy(() => import('./pages/Team/Team'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/faq',
         element: <FAQ />,
+      },
+      {
+        path: '/bar',
+        element: <BarChart />,
       },
     ],
   },
