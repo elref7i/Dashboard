@@ -50,7 +50,7 @@ export default function App() {
           open={open}
         />
         <Sidebar handleDrawerClose={handleDrawerClose} open={open} />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
           <DrawerHeader />
           <Suspense fallback={<h2>Loading...</h2>}>
             <Outlet />
