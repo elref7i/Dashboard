@@ -6,6 +6,7 @@ import App from './App';
 import Calendar from './pages/Calendar/Calendar';
 import FAQ from './pages/FAQ/FAQ';
 import BarChart from './pages/BarChart/BarChart';
+import PieCart from './pages/PieCart/PieCart';
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
 const Team = lazy(() => import('./pages/Team/Team'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/bar',
         element: <BarChart />,
+      },
+      {
+        path: '/pie',
+        element: <PieCart />,
       },
     ],
   },
