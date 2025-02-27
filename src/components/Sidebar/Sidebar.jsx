@@ -25,7 +25,6 @@ import {
   BarChart as BarChartIcon,
   PieChart as PieChartIcon,
   Timeline as TimelineIcon,
-  Map as MapIcon,
 } from '@mui/icons-material';
 import ImageAdmin from '../../assets/photo_2024-12-03_19-37-17.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -101,7 +100,6 @@ const ArrayThree = [
   { text: 'Bar Chart', icon: <BarChartIcon />, path: '/bar' },
   { text: 'Pie Chart', icon: <PieChartIcon />, path: '/pie' },
   { text: 'Line Chart', icon: <TimelineIcon />, path: '/line' },
-  { text: 'Geography Chart', icon: <MapIcon />, path: '/Geography' },
 ];
 // eslint-disable-next-line react/prop-types
 export default function Sidebar({ handleDrawerClose, open }) {

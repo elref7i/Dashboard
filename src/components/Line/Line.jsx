@@ -1,30 +1,30 @@
-import { useTheme } from '@mui/material';
-import { ResponsivePie } from '@nivo/pie';
+import { ResponsiveLine } from '@nivo/line';
 import { data } from './data';
-export default function Pie() {
+import { useTheme } from '@mui/material';
+export default function Line() {
   const theme = useTheme();
-
   return (
-    <ResponsivePie
+    <ResponsiveLine
       data={data}
+      curve="catmullRom"
       theme={{
         text: {
           fontSize: 11,
-          fill: theme.palette.primary.main,
+          fill: theme.palette.secondary,
           outlineWidth: 0,
           outlineColor: 'transparent',
         },
         axis: {
           domain: {
             line: {
-              stroke: theme.palette.primary.main,
+              stroke: theme.palette.secondary.main,
               strokeWidth: 1,
             },
           },
           legend: {
             text: {
               fontSize: 15,
-              fill: theme.palette.error,
+              fill: theme.palette.secondary.main,
               outlineWidth: 0,
               outlineColor: 'transparent',
             },
@@ -44,22 +44,22 @@ export default function Pie() {
         },
         grid: {
           line: {
-            stroke: '#4f4f4f',
-            strokeWidth: 1,
+            stroke: '#dddddd',
+            strokeWidth: 0,
           },
         },
         legends: {
           title: {
             text: {
               fontSize: 15,
-              fill: theme.palette.secondary.main,
+              fill: theme.palette.secondary,
               outlineWidth: 0,
               outlineColor: 'transparent',
             },
           },
           text: {
             fontSize: 15,
-            fill: theme.palette.primary.main,
+            fill: theme.palette.secondary,
             outlineWidth: 0,
             outlineColor: 'transparent',
           },
@@ -116,116 +116,65 @@ export default function Pie() {
           tableCellValue: {},
         },
       }}
-      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-      innerRadius={0.5}
-      padAngle={0.7}
-      cornerRadius={3}
-      activeOuterRadiusOffset={8}
-      borderWidth={1}
-      borderColor={{
-        from: 'color',
-        modifiers: [['darker', 0.2]],
+      margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+      xScale={{ type: 'point' }}
+      yScale={{
+        type: 'linear',
+        min: 'auto',
+        max: 'auto',
+        stacked: true,
+        reverse: false,
       }}
-      arcLinkLabelsSkipAngle={10}
-      arcLinkLabelsTextColor="#333333"
-      arcLinkLabelsThickness={2}
-      arcLinkLabelsColor={{ from: 'color' }}
-      arcLabelsSkipAngle={10}
-      arcLabelsTextColor={{
-        from: 'color',
-        modifiers: [['darker', 2]],
+      yFormat=" >-.2f"
+      axisTop={null}
+      axisRight={null}
+      axisBottom={{
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: 'transportation',
+        legendOffset: 36,
+        legendPosition: 'middle',
+        truncateTickAt: 0,
       }}
-      defs={[
-        {
-          id: 'dots',
-          type: 'patternDots',
-          background: 'inherit',
-          color: 'rgba(255, 255, 255, 0.3)',
-          size: 4,
-          padding: 1,
-          stagger: true,
-        },
-        {
-          id: 'lines',
-          type: 'patternLines',
-          background: 'inherit',
-          color: 'rgba(255, 255, 255, 0.7)',
-          rotation: -45,
-          lineWidth: 6,
-          spacing: 10,
-        },
-      ]}
-      fill={[
-        {
-          match: {
-            id: 'ruby',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'c',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'go',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'python',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'scala',
-          },
-          id: 'lines',
-        },
-        {
-          match: {
-            id: 'lisp',
-          },
-          id: 'lines',
-        },
-        {
-          match: {
-            id: 'elixir',
-          },
-          id: 'lines',
-        },
-        {
-          match: {
-            id: 'javascript',
-          },
-          id: 'lines',
-        },
-      ]}
+      axisLeft={{
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: 'count',
+        legendOffset: -40,
+        legendPosition: 'middle',
+        truncateTickAt: 0,
+      }}
+      pointSize={10}
+      pointColor={{ theme: 'background' }}
+      pointBorderWidth={2}
+      pointBorderColor={{ from: 'serieColor' }}
+      pointLabel="data.yFormatted"
+      pointLabelYOffset={-12}
+      enableTouchCrosshair={true}
+      useMesh={true}
       legends={[
         {
-          anchor: 'bottom',
-          direction: 'row',
+          anchor: 'bottom-right',
+          direction: 'column',
           justify: false,
-          padding: 2,
-          translateX: 0,
-          translateY: 56,
+          translateX: 100,
+          translateY: 0,
           itemsSpacing: 0,
-          itemWidth: 100,
-          itemHeight: 18,
-          itemTextColor: '#999',
           itemDirection: 'left-to-right',
-          itemOpacity: 1,
-          symbolSize: 18,
+          itemWidth: 80,
+          itemHeight: 20,
+          itemOpacity: 0.75,
+          symbolSize: 12,
           symbolShape: 'circle',
+          symbolBorderColor: 'rgba(0, 0, 0, .5)',
           effects: [
             {
               on: 'hover',
               style: {
-                itemTextColor: theme.palette.primary.main,
+                itemBackground: 'rgba(0, 0, 0, .03)',
+                itemOpacity: 1,
               },
             },
           ],
