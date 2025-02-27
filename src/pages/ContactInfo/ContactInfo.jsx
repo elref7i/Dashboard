@@ -3,7 +3,7 @@ import { columns, rows } from './data';
 
 export default function ContactInfo() {
   return (
-    <div style={{ height: 600, width: '98%' }}>
+    <div style={{ height: 600, width: '98%', overflowX: 'auto' }}>
       <DataGrid
         rows={rows}
         columns={columns}

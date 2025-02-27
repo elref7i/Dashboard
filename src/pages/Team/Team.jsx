@@ -2,7 +2,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { rows } from './data';
 import { saveAs } from 'file-saver';
 import Papa from 'papaparse';
-import { Box, Button, useTheme } from '@mui/material';
+import { Box, Button, Paper, useTheme } from '@mui/material';
 import {
   AdminPanelSettings,
   ManageAccounts,
@@ -23,12 +23,14 @@ export default function Team() {
       headerName: 'ID',
       align: 'center',
       headerAlign: 'center',
+      minWidth: 10,
     },
     {
       field: 'name',
       headerName: 'Name',
       align: 'center',
       headerAlign: 'center',
+      minWidth: 150,
     },
     {
       field: 'Email',
@@ -42,6 +44,7 @@ export default function Team() {
       headerName: 'Age',
       align: 'center',
       headerAlign: 'center',
+      minWidth: 150,
     },
     {
       field: 'Phone',
@@ -49,6 +52,7 @@ export default function Team() {
       flex: 1,
       align: 'center',
       headerAlign: 'center',
+      minWidth: 150,
     },
     {
       field: 'Access',
@@ -56,6 +60,7 @@ export default function Team() {
       flex: 1,
       align: 'center',
       headerAlign: 'center',
+      minWidth: 150,
       renderCell: ({ row: { Access } }) => {
         return (
           <Box
@@ -100,7 +105,7 @@ export default function Team() {
   ];
 
   return (
-    <div style={{ height: 600, width: '98%' }}>
+    <Paper elevation={4} style={{ height: 600, overflowX: 'auto' }}>
       <Button
         onClick={handleExportCSV}
         sx={{
@@ -122,6 +127,6 @@ export default function Team() {
         disableSelectionOnClick
         autoPageSize
       />
-    </div>
+    </Paper>
   );
 }
