@@ -16,7 +16,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
-  Home as HomeIcon,
   Group as GroupIcon,
   Contacts as ContactsIcon,
   Person as PersonIcon,
@@ -83,8 +82,7 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 const ArrayOne = [
-  { text: 'Dashboard', icon: <HomeIcon />, path: '/' },
-  { text: 'Manage Team', icon: <GroupIcon />, path: '/team' },
+  { text: 'Manage Team', icon: <GroupIcon />, path: '/' },
   {
     text: 'Contacts Information',
     icon: <ContactsIcon />,

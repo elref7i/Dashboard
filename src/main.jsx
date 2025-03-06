@@ -8,7 +8,6 @@ import FAQ from './pages/FAQ/FAQ';
 import BarChart from './pages/BarChart/BarChart';
 import PieCart from './pages/PieCart/PieCart';
 import LineChart from './pages/LineChart/LineChart';
-const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
 const Team = lazy(() => import('./pages/Team/Team'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
 const ContactInfo = lazy(() => import('./pages/ContactInfo/ContactInfo'));
@@ -20,10 +19,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard />,
-      },
-      {
-        path: '/team',
         element: <Team />,
       },
       {
